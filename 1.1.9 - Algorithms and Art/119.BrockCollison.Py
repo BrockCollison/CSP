@@ -1,61 +1,347 @@
 import turtle as trtl
+painter = trtl.Turtle()
+screen = trtl.Screen()
+screen.setup(width=600, height=400) # Sets the screen measurements
 
 #Make list of months and seasons 
 Months = ["January", "Feburary", "March", "April", "May","June","July", "August", "September","October", "November", "December"]
 Seasons = ["Winter", "Spring","Summer","Fall"]
 
+#---------------------------------------------------------
 
-#Ask what season they want 
-x = (input("Choose a month...")) #Enter a Month
+#Create different drawings based on the seasons
+def Fall_Draw():
+    painter.penup()
+    painter.goto(-300, -20)
+    painter.color("brown")
+    painter.pendown()
+    painter.begin_fill()
+    for i in range(2):
+        painter.forward(600)
+        painter.right(90)
+        painter.forward(180)
+        painter.right(90)
+    
+    painter.end_fill()
+    painter.penup()
+    painter.goto(0,-20)
+    painter.color("orange")
+    painter.pendown()
+    painter.begin_fill()
+    radius = 40
+    painter.circle(radius)
+    painter.end_fill()
+    painter.penup()
+    painter.goto(15,15)
+    painter.color("black")
+    painter.pendown()
+    painter.begin_fill()
+    radius = 5
+    painter.circle(radius)
+    painter.end_fill()
+    painter.penup()
+    painter.goto(-15,15)
+    painter.color("black")
+    painter.pendown()
+    painter.begin_fill()
+    radius = 5
+    painter.circle(radius)
+    painter.end_fill()
+    painter.penup()
+    painter.goto(-5,60)
+    painter.left(90)
+    painter.color("green")
+    painter.pendown()
+    painter.begin_fill()
+    for i in range(2):
+          painter.forward(20)
+          painter.right(90)
+          painter.forward(10)
+          painter.right(90)
+    painter.end_fill()
+    painter.penup()
+    painter.goto(-10, 0)
+    painter.color("black")
+    painter.setheading(-60)
+    painter.pendown()
+    painter.circle(10, 120)
+    painter.penup()
+    painter.goto(-300,0)
+
+
+
+def Winter_Draw():
+    painter.penup()
+    painter.goto(-300, -20)
+    painter.color("white")
+    painter.pendown()
+    painter.begin_fill()
+    for i in range(2):
+        painter.forward(600)
+        painter.right(90)
+        painter.forward(180)
+        painter.right(90)
+    
+    painter.end_fill()
+    painter.penup()
+    painter.goto(0,-20)
+    painter.color("black")
+    painter.pendown()
+    painter.begin_fill()
+    radius = 40
+    painter.circle(radius)
+    painter.end_fill()
+    painter.penup()
+    painter.goto(0,60)
+    painter.color("black")
+    painter.pendown()
+    painter.begin_fill()
+    radius = 30
+    painter.circle(radius)
+    painter.end_fill()
+    painter.penup()
+    painter.goto(0,120)
+    painter.color("black")
+    painter.pendown()
+    painter.begin_fill()
+    radius = 20
+    painter.circle(radius)
+    painter.end_fill()
+    painter.penup()
+    painter.goto(-5,160)
+    painter.left(90)
+    painter.color("black")
+    painter.pendown()
+    painter.begin_fill()
+    for i in range(2):
+          painter.forward(20)
+          painter.right(90)
+          painter.forward(10)
+          painter.right(90)
+    painter.end_fill()
+    painter.left(90)
+    painter.penup()
+    painter.goto(-10, 0)
+    painter.color("black")
+    painter.setheading(-60)
+    painter.pendown()
+    painter.circle(10, 120)
+    painter.penup()
+    painter.goto(-300,0)
+    
+
+def Spring_Draw():
+    painter.penup()
+    painter.goto(-300, -20)
+    painter.color("green")
+    painter.pendown()
+    painter.begin_fill()
+    for i in range(2):
+        painter.forward(600)
+        painter.right(90)
+        painter.forward(180)
+        painter.right(90)
+    
+    painter.end_fill()
+    painter.penup()
+    painter.goto(0,-20)
+    painter.color("orange")
+    painter.pendown()
+    painter.begin_fill()
+    radius = 40
+    painter.circle(radius)
+    painter.end_fill()
+    painter.penup()
+    painter.goto(15,15)
+    painter.color("black")
+    painter.pendown()
+    painter.begin_fill()
+    radius = 5
+    painter.circle(radius)
+    painter.end_fill()
+    painter.penup()
+    painter.goto(-15,15)
+    painter.color("black")
+    painter.pendown()
+    painter.begin_fill()
+    radius = 5
+    painter.circle(radius)
+    painter.end_fill()
+    painter.penup()
+    painter.goto(-5,60)
+    painter.left(90)
+    painter.color("green")
+    painter.pendown()
+    painter.begin_fill()
+    for i in range(2):
+          painter.forward(20)
+          painter.right(90)
+          painter.forward(10)
+          painter.right(90)
+    painter.end_fill()
+    painter.penup()
+    painter.goto(-10, 0)
+    painter.color("black")
+    painter.setheading(-60)
+    painter.pendown()
+    painter.circle(10, 120)
+    painter.penup()
+    painter.goto(-300,0)
+#---------------------------------------------------------------
+
+def Summer_Draw():
+    painter.penup()
+    painter.goto(-300, -20)
+    painter.color("yellow")
+    painter.pendown()
+    painter.begin_fill()
+    for i in range(2):
+        painter.forward(600)
+        painter.right(90)
+        painter.forward(180)
+        painter.right(90)
+    
+    painter.end_fill()
+    painter.penup()
+    painter.goto(0,-20)
+    painter.color("orange")
+    painter.pendown()
+    painter.begin_fill()
+    radius = 40
+    painter.circle(radius)
+    painter.end_fill()
+    painter.penup()
+    painter.goto(15,15)
+    painter.color("black")
+    painter.pendown()
+    painter.begin_fill()
+    radius = 5
+    painter.circle(radius)
+    painter.end_fill()
+    painter.penup()
+    painter.goto(-15,15)
+    painter.color("black")
+    painter.pendown()
+    painter.begin_fill()
+    radius = 5
+    painter.circle(radius)
+    painter.end_fill()
+    painter.penup()
+    painter.goto(-5,60)
+    painter.left(90)
+    painter.color("green")
+    painter.pendown()
+    painter.begin_fill()
+    for i in range(2):
+          painter.forward(20)
+          painter.right(90)
+          painter.forward(10)
+          painter.right(90)
+    painter.end_fill()
+    painter.penup()
+    painter.goto(-10, 0)
+    painter.color("black")
+    painter.setheading(-60)
+    painter.pendown()
+    painter.circle(10, 120)
+    painter.penup()
+    painter.goto(-300,0)
+#------------------------------------------------
+      
+
+
+def ask_draw(season):
+       answer = trtl.textinput("Draw season","Would you like me to draw "+season+"? Yes or no?...")
+       if answer == "yes":
+              if season.lower() == "fall":
+                     Fall_Draw()
+              elif season.lower() == "winter":
+                     Winter_Draw()
+              elif season.lower() == "spring":
+                     Spring_Draw()
+              elif season.lower() == "summer":
+                     Summer_Draw()
+              else:
+                     print("No drawing then, ok.")   
+              
+
+
+#Ask what month they want 
+x = (trtl.textinput("month", "Choose a month?...")) #Enter a Month
 x= x.capitalize()
 
 if x not in Months:
-        print("That's not a valid month, sorry.")
+        trtl.write("That's not a valid month, sorry.")
 
 else:
 
  if x in ["October", "November", "September"]:
-        Season_Ask = (input("Choose a season..."))
+        Season_Ask = (trtl.textinput("season", "Choose a season..."))
         Season_Ask = Season_Ask.capitalize()
         if Season_Ask == "Fall":
                 print(f"{Season_Ask} is a nice season!")
+                ask_draw(Season_Ask)
         else:
-                print("That's not a fall season...")
+                print("That's not part of the fall season...")
 
         
                 
  elif x in ["June", "July", "August"]:
-        Season_Ask = (input("Choose a season..."))
+        Season_Ask = (trtl.textinput("season", "Choose a season..."))
         Season_Ask = Season_Ask.capitalize()
         if Season_Ask == "Summer":
                 print(f"{Season_Ask} is a nice season!")
+                ask_draw(Season_Ask)
         else:
-                print("That's not a summer season...")
+                print("That's not part of the summer season...")
 
 
  elif x in ["November", "December", "January"]:
-        Season_Ask = (input("Choose a season..."))
+        Season_Ask = (trtl.textinput("season", "Choose a season..."))
         Season_Ask = Season_Ask.capitalize()
         if Season_Ask == "Winter":
                 print(f"{Season_Ask} is a nice season!")
+                ask_draw(Season_Ask)
         else:
-                print("That's not a Winter season...")
+                print("That's not part of the Winter season...")
 
  elif x in ["March", "Feburary", "April", "May"]:
-        Season_Ask = (input("Choose a season..."))
+        Season_Ask = (trtl.textinput("season","Choose a season..."))
         Season_Ask = Season_Ask.capitalize()
         if Season_Ask == "Spring":
                 print(f"{Season_Ask} is a nice season!")
+                ask_draw(Season_Ask)
         else:
-                print("That's not a Spring season...")
+                print("That's not part of the Spring season...")
+
+
+
+#-------------------------------------------
+
+sky_color = screen.textinput("Sky Color", "Day or Night?").lower() #Option to change the time(Day or night)
+
+if sky_color == ("day"):
+      screen.bgcolor("sky blue")
+
+else:
+      screen.bgcolor("black")
+
+
 
     
-     
+
         
 
 
 
-#Create different drawings based on the seasons
+
+
+
+       
+
+       
+
+
 
 
 
