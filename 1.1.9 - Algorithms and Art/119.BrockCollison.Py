@@ -1,5 +1,6 @@
 import turtle as trtl
-painter = trtl.Turtle()
+trtl.addshape("paint_brush", ((-5,-20), (5,-20),(5,0),(8,10),(0,20),(-8,10),(0,20),(-8,10),(-5,0)))
+painter = trtl.Turtle(shape="paint_brush")
 screen = trtl.Screen()
 screen.setup(width=600, height=400) # Sets the screen measurements
 
@@ -7,6 +8,8 @@ screen.setup(width=600, height=400) # Sets the screen measurements
 Months = ["January", "Feburary", "March", "April", "May","June","July", "August", "September","October", "November", "December"]
 Seasons = ["Winter", "Spring","Summer","Fall"]
 
+
+  
 #---------------------------------------------------------
 
 #Create different drawings based on the seasons
@@ -68,7 +71,7 @@ def Fall_Draw():
     painter.penup()
     painter.goto(-300,0)
 
-
+#----------------------------------------
 
 def Winter_Draw():
     painter.penup()
@@ -85,7 +88,7 @@ def Winter_Draw():
     painter.end_fill()
     painter.penup()
     painter.goto(0,-20)
-    painter.color("black")
+    painter.color("white")
     painter.pendown()
     painter.begin_fill()
     radius = 40
@@ -93,7 +96,7 @@ def Winter_Draw():
     painter.end_fill()
     painter.penup()
     painter.goto(0,60)
-    painter.color("black")
+    painter.color("white")
     painter.pendown()
     painter.begin_fill()
     radius = 30
@@ -101,7 +104,7 @@ def Winter_Draw():
     painter.end_fill()
     painter.penup()
     painter.goto(0,120)
-    painter.color("black")
+    painter.color("white")
     painter.pendown()
     painter.begin_fill()
     radius = 20
@@ -120,14 +123,24 @@ def Winter_Draw():
           painter.right(90)
     painter.end_fill()
     painter.left(90)
+    painter.forward(15)
+    painter.right(180)
+    painter.forward(40)
     painter.penup()
-    painter.goto(-10, 0)
-    painter.color("black")
-    painter.setheading(-60)
+    painter.goto(20, 145)
+    painter.color("orange")
     painter.pendown()
-    painter.circle(10, 120)
-    painter.penup()
-    painter.goto(-300,0)
+    painter.begin_fill()
+   
+    painter.left(30)
+    painter.forward(10)
+    painter.right(120)
+    painter.forward(10)
+    painter.right(30)
+    painter.end_fill()
+    
+   
+ #------------------------------------------         
     
 
 def Spring_Draw():
@@ -247,7 +260,13 @@ def Summer_Draw():
     painter.penup()
     painter.goto(-300,0)
 #------------------------------------------------
-      
+
+sky_color = screen.textinput("Sky Color", "Day or Night?").lower() #Option to change the time(Day or night)
+if sky_color == ("day"):
+      screen.bgcolor("sky blue")
+
+else:
+      screen.bgcolor("midnight blue")
 
 
 def ask_draw(season):
@@ -262,7 +281,7 @@ def ask_draw(season):
               elif season.lower() == "summer":
                      Summer_Draw()
               else:
-                     print("No drawing then, ok.")   
+                    trtl.textinput("No drawing then, ok.")   
               
 
 
@@ -282,7 +301,7 @@ else:
                 print(f"{Season_Ask} is a nice season!")
                 ask_draw(Season_Ask)
         else:
-                print("That's not part of the fall season...")
+               trtl.textinput("That's not part of the fall season...")
 
         
                 
@@ -293,7 +312,7 @@ else:
                 print(f"{Season_Ask} is a nice season!")
                 ask_draw(Season_Ask)
         else:
-                print("That's not part of the summer season...")
+                trtl.textinput("That's not part of the summer season...")
 
 
  elif x in ["November", "December", "January"]:
@@ -303,7 +322,7 @@ else:
                 print(f"{Season_Ask} is a nice season!")
                 ask_draw(Season_Ask)
         else:
-                print("That's not part of the Winter season...")
+               trtl.textinput("That's not part of the Winter season...")
 
  elif x in ["March", "Feburary", "April", "May"]:
         Season_Ask = (trtl.textinput("season","Choose a season..."))
@@ -312,19 +331,15 @@ else:
                 print(f"{Season_Ask} is a nice season!")
                 ask_draw(Season_Ask)
         else:
-                print("That's not part of the Spring season...")
+               trtl.textinput("That's not part of the Spring season...")
 
 
 
 #-------------------------------------------
 
-sky_color = screen.textinput("Sky Color", "Day or Night?").lower() #Option to change the time(Day or night)
 
-if sky_color == ("day"):
-      screen.bgcolor("sky blue")
 
-else:
-      screen.bgcolor("black")
+
 
 
 
@@ -345,6 +360,6 @@ else:
 
 
 
-#Choose night of day 
+
 wn = trtl.Screen()
 wn.mainloop()
