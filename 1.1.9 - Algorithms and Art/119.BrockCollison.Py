@@ -1,8 +1,10 @@
 import turtle as trtl
+
 trtl.addshape("paint_brush", ((-5,-20), (5,-20),(5,0),(8,10),(0,20),(-8,10),(0,20),(-8,10),(-5,0)))
 painter = trtl.Turtle(shape="paint_brush")
-screen = trtl.Screen()
-screen.setup(width=600, height=400) # Sets the screen measurements
+
+screen = trtl.Screen() #How do I set the screen measurements so I could create a drawing more easily?
+screen.setup(width=600, height=400) 
 
 #Make list of months and seasons 
 Months = ["January", "Feburary", "March", "April", "May","June","July", "August", "September","October", "November", "December"]
@@ -14,6 +16,7 @@ Seasons = ["Winter", "Spring","Summer","Fall"]
 
 #Create different drawings based on the seasons
 def Fall_Draw():
+    painter.speed(10)
     painter.penup()
     painter.goto(-300, -20)
     painter.color("brown")
@@ -74,6 +77,7 @@ def Fall_Draw():
 #----------------------------------------
 
 def Winter_Draw():
+    painter.speed(10)
     painter.penup()
     painter.goto(-300, -20)
     painter.color("white")
@@ -137,7 +141,10 @@ def Winter_Draw():
     painter.right(120)
     painter.forward(10)
     painter.right(30)
+    
     painter.end_fill()
+    painter.penup()
+    painter.goto(-100,-20)
     
    
  #------------------------------------------         
@@ -281,64 +288,101 @@ def ask_draw(season):
               elif season.lower() == "summer":
                      Summer_Draw()
               else:
-                    trtl.textinput("No drawing then, ok.")   
+                    trtl.write("No drawing then ok.")   
               
 
 
 #Ask what month they want 
-x = (trtl.textinput("month", "Choose a month?...")) #Enter a Month
-x= x.capitalize()
+while True:
+    x = (trtl.textinput("month", "Choose a month?...")) #Enter a Month
+    x= x.capitalize()
 
-if x not in Months:
-        trtl.write("That's not a valid month, sorry.")
+    if not x:
+          trtl.bye()
+          break
 
-else:
+    if x not in Months:
+            trtl.clear()
+            
+            continue
 
- if x in ["October", "November", "September"]:
-        Season_Ask = (trtl.textinput("season", "Choose a season..."))
-        Season_Ask = Season_Ask.capitalize()
-        if Season_Ask == "Fall":
-                print(f"{Season_Ask} is a nice season!")
-                ask_draw(Season_Ask)
-        else:
-               trtl.textinput("That's not part of the fall season...")
-
-        
+    
+    valid = False
+    if x in ["October", "November", "September"]:
+            Season_Ask = (trtl.textinput("season", "Choose a season..."))
+            Season_Ask = Season_Ask.capitalize()
+            if Season_Ask == "Fall":
+                    valid = True
+            else:
                 
- elif x in ["June", "July", "August"]:
-        Season_Ask = (trtl.textinput("season", "Choose a season..."))
-        Season_Ask = Season_Ask.capitalize()
-        if Season_Ask == "Summer":
-                print(f"{Season_Ask} is a nice season!")
-                ask_draw(Season_Ask)
-        else:
-                trtl.textinput("That's not part of the summer season...")
+                continue
+
+            
+                    
+    elif x in ["June", "July", "August"]:
+            Season_Ask = (trtl.textinput("season", "Choose a season..."))
+            Season_Ask = Season_Ask.capitalize()
+            if Season_Ask == "Summer":
+                    valid = True
+            else:
+                    
+                    continue
 
 
- elif x in ["November", "December", "January"]:
-        Season_Ask = (trtl.textinput("season", "Choose a season..."))
-        Season_Ask = Season_Ask.capitalize()
-        if Season_Ask == "Winter":
-                print(f"{Season_Ask} is a nice season!")
-                ask_draw(Season_Ask)
-        else:
-               trtl.textinput("That's not part of the Winter season...")
+    elif x in ["November", "December", "January"]:
+            Season_Ask = (trtl.textinput("season", "Choose a season..."))
+            Season_Ask = Season_Ask.capitalize()
+            if Season_Ask == "Winter":
+                    valid = True
+            else:
+                
+                continue
 
- elif x in ["March", "Feburary", "April", "May"]:
-        Season_Ask = (trtl.textinput("season","Choose a season..."))
-        Season_Ask = Season_Ask.capitalize()
-        if Season_Ask == "Spring":
-                print(f"{Season_Ask} is a nice season!")
-                ask_draw(Season_Ask)
-        else:
-               trtl.textinput("That's not part of the Spring season...")
+    elif x in ["March", "Feburary", "April", "May"]:
+            Season_Ask = (trtl.textinput("season","Choose a season..."))
+            Season_Ask = Season_Ask.capitalize()
+            if Season_Ask == "Spring":
+                    valid = True
+            else:
+                trtl.write("That's not part of the Spring season...")
+                continue
+    
+
+    if valid :
+           print(f"{Season_Ask} is a nice season!")
+           ask_draw(Season_Ask)
+
+    else:
+           trtl.clear()
+           trtl.write(f"{Season_Ask} is not the correct season for {x}. Try again.")
+
+
+    retry = trtl.textinput("Try Again?", "Would you like to try again? (yes/no)")
+
+    if not retry or retry.lower() != "yes":
+        
+        trtl.bye()
+        break
+    else:
+          trtl.resetscreen()
+          screen = trtl.Screen()
+          screen.setup(width=600, height=400)
+          
+          
+          sky_color = screen.textinput("Sky Color", "Day or Night?").lower() #Option to change the time(Day or night)
+          if sky_color == ("day"):
+                screen.bgcolor("sky blue")
+
+          else:
+                screen.bgcolor("midnight blue")
+
+
+           
+           
 
 
 
 #-------------------------------------------
-
-
-
 
 
 
