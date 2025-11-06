@@ -7,7 +7,7 @@ import time
 wn = trtl.Screen()
 wn.setup(width=600, height=400)
 wn.bgcolor("lightgrey")
-wn.title("Turtle Car Dodge Game")
+wn.title("Turtle Car Dodge Game. Use arrow keys only.")
 wn.tracer(0)
 
 # --- DRAW LANE LINES ---
@@ -48,7 +48,7 @@ else:
     player.color("green")
 
 # --- MOVEMENT CONTROLS ---
-player_lanes = [-200, -100, 0, 100, 200]  # X coordinates of 5 lanes
+player_lanes = [-200, -100, 0, 100, 200]  
 
 def go_left():
     x = player.xcor()
@@ -134,19 +134,7 @@ def game_over():
     over.goto(0, -40)
     over.write(f"You survived {time_survived} seconds!", align="center", font=("Arial", 18, "normal"))
 
-    play_again = wn.textinput("Play Again?", "Do you want to play again? (yes or no): ")
-    
-    if play_again and play_again.lower() == "yes":
-        trtl.resetscreen()
-        
-        
-        
-        
-
-    else:
-        over.goto(0, -80)
-        over.write("Thanks for playing!", align="center", font=("Arial", 16, "italic"))
-        wn.ontimer(wn.bye, 3000)
+ 
 
 
 create_car()
